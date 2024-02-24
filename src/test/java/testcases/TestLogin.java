@@ -86,6 +86,17 @@ public class TestLogin extends DriverSetup {
 
 
 
+//Data driven testing:  Now using Data Provider allocation of TestNg
 
-    
+    @Test
+    public void testloginWithDataProvider(String username, String password, String errorMessage){
+        getBrowser().get(loginPage.loginpageURL);
+        loginPage.writeOnElement(loginPage.usernameInputBox, username);
+        loginPage.writeOnElement(loginPage.passwordInputBox, password);
+        loginPage.clickOnElement(loginPage.loginButton);
+        Assert.assertTrue(loginPage.getElement(loginPage.errorMessage).isDisplayed());
+        Assert.assertEquals(loginPage.getElementText(loginPage.errorMessage), errorMessage);
+    }
+
+
 }
