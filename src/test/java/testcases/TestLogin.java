@@ -6,6 +6,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.ProductPage;
 import pages.SignInPage;
+import utilities.DataSet;
 import utilities.DriverSetup;
 
 public class TestLogin extends DriverSetup {
@@ -88,7 +89,7 @@ public class TestLogin extends DriverSetup {
 
 //Data driven testing:  Now using Data Provider allocation of TestNg
 
-    @Test
+    @Test(dataProvider = "invalidUserData", dataProviderClass = DataSet.class)
     public void testloginWithDataProvider(String username, String password, String errorMessage){
         getBrowser().get(loginPage.loginpageURL);
         loginPage.writeOnElement(loginPage.usernameInputBox, username);
