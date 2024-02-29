@@ -1,5 +1,8 @@
 package testcases;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -44,15 +47,20 @@ public class TestLogin extends DriverSetup {
     }
 
 
-    @Test
+    @Test(description = "Test with valid credentials")
+    @Description("User trying to login with valid username and password")
+    @Severity(SeverityLevel.BLOCKER)
 
     //first e sanity testcase gula automate korte hbe. Valid user name password diye login kore use kora jabe kina ensure hote hbe
     public void testloginWithValidCrendentials(){
         getBrowser().get(loginPage.loginpageURL);
         loginPage.writeOnElement(loginPage.usernameInputBox, "standard_user");
+        loginPage.takeScreenShort("After enter Username");
         loginPage.writeOnElement(loginPage.passwordInputBox, "secret_sauce");
+        loginPage.takeScreenShort("After enter password");
         loginPage.clickOnElement(loginPage.loginButton);
         Assert.assertEquals(getBrowser().getCurrentUrl(), productPage.productPageURL);
+        loginPage.takeScreenShort("After login successful");
     }
 
     @Test

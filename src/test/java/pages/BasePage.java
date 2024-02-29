@@ -1,8 +1,13 @@
 package pages;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.io.ByteArrayInputStream;
 
 import static utilities.DriverSetup.getBrowser;
 
@@ -36,5 +41,9 @@ public class BasePage {
     }
     public String getElementText (By locator){
         return getElement(locator).getText();
+    }
+
+    public void takeScreenShort(String name){
+        Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot)getBrowser()).getScreenshotAs(OutputType.BYTES)));
     }
 }

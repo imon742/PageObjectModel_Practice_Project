@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" thread-count="3" parallel="classes" >
+    <test verbose="2" preserve-order="true"
+          name="H:/SQA Project/Automation01/PageObject_Model_Framework/PageObjectModel_Practice_Project/PageObjectModel_Practice_Project">
+        <classes>
+            <class name="testcases.TestCheckOut">
+                <methods>
+                    <include name="purchaseProduct"/>
+                </methods>
+            </class>
+            <class name="testcases.TestLogin">
+                <methods>
+                    //include dile nbe ar Exclude dile run hbe na
+                    <include name="testLogin"/>
+                    <include name="testloginWithValidCrendentials"/>
+                    <include name="testloginWithInvalidPassword"/>
+                    <include name="testloginWithoutUserIdandPassword"/>
+                    <include name="testloginWithoutUserId"/>
+                    <include name="testloginWithDataProvider"/>
+                </methods>
+            </class>
+            <class name="testcases.TestProductPage">
+                <methods>
+                    <include name="testProductDetails"/>
+                    <include name="testAddCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

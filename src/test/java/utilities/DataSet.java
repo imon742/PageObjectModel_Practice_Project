@@ -13,7 +13,6 @@ public class DataSet {
                 {"", "secret_sauce", "Epic sadface: Username is required" },
                 {"standard_user", "", "Epic sadface: Password is required" },
                 {"", "", "Epic sadface: Username is required" },
-                {"standard_user", "secret_sauce", "Epic sadface: Username is required"},
                 {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out." }
 
         };

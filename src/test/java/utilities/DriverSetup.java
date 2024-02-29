@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
@@ -42,7 +44,7 @@ public class DriverSetup {
         }
     }
 
-    @BeforeSuite
+    @BeforeClass
 
     public void openABrowser(){
 // local_broser theke get korlam
@@ -59,7 +61,7 @@ public class DriverSetup {
 
     }
 
-    @AfterSuite
+    @AfterClass
 
     public void quiteBrowser(){
         //browser.close();
