@@ -14,17 +14,24 @@ public class TestProductPage extends DriverSetup {
 
     public void testProductDetails() throws InterruptedException{
         loginPage.doLogin("standard_user", "secret_sauce");
-        productPage.clickOnElement(productPage.addToCartButton);
         productPage.clickOnElement(productPage.labsBackpack);
-        Thread.sleep(4000);
-        productPage.clickOnElement(productPage.RemoveButton);
-        Thread.sleep(4000);
-        productPage.clickOnElement(productPage.addToCartButton);
-        Thread.sleep(4000);
         Assert.assertEquals(productPage.getElementText(productPage.labsBackpackTitle),"Sauce Labs Backpack");
-
-
+        productPage.clickOnElement(productPage.addToCartButton);
+        productPage.clickOnElement(productPage.removeButton);
 
     }
+
+    @Test
+    public void testAddCart(){
+        loginPage.doLogin("standard_user", "secret_sauce");
+        productPage.clickOnElement(productPage.labsBackpack);
+        productPage.clickOnElement(productPage.addToCartButton);
+        Assert.assertTrue(productPage.getElement(productPage.removeButton).isDisplayed());
+        Assert.assertEquals(productPage.getElementText(productPage.cartCount), "1");
+        productPage.clickOnElement(productPage.removeButton);
+    }
+
+
+
 
 }

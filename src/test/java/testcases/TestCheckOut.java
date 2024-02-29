@@ -1,5 +1,6 @@
 package testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.CheckOutPage;
@@ -21,5 +22,10 @@ public class TestCheckOut extends DriverSetup {
         checkOutPage.writeOnElement(checkOutPage.last_name_inputBox,"BBBBBBB");
         checkOutPage.writeOnElement(checkOutPage.zip_postal_code_inputBox,"12244");
         checkOutPage.clickOnElement(checkOutPage.continue_Button);
+        checkOutPage.clickOnElement(checkOutPage.finish_Button);
+        Assert.assertEquals(checkOutPage.getElementText(checkOutPage.confirmationText), "Thank you for your order!");
+        checkOutPage.clickOnElement(checkOutPage.backHome_Button);
+        //Assert.assertEquals(productPage.getElementText(productPage.cartCount), "1");
+
     }
 }
